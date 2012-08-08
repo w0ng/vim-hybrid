@@ -255,16 +255,16 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! SpellBad"      .s:fg_none        .s:bg_none        .s:fmt_curl .s:sp_red
-exe "hi! SpellCap"      .s:fg_none        .s:bg_none        .s:fmt_curl .s:sp_blue
-exe "hi! SpellLocal"    .s:fg_none        .s:bg_none        .s:fmt_curl .s:sp_purple
-exe "hi! SpellRare"     .s:fg_none        .s:bg_none        .s:fmt_curl .s:sp_aqua
+exe "hi! SpellBad"      .s:fg_background  .s:bg_red         .s:fmt_undr
+exe "hi! SpellCap"      .s:fg_background  .s:bg_blue        .s:fmt_undr
+exe "hi! SpellLocal"    .s:fg_addfg       .s:bg_addbg       .s:fmt_undr
+exe "hi! SpellRare"     .s:fg_changefg    .s:bg_changebg    .s:fmt_undr
 exe "hi! StatusLine"    .s:fg_window      .s:bg_yellow      .s:fmt_revr
 exe "hi! StatusLineNC"  .s:fg_window      .s:bg_foreground  .s:fmt_revr
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_background  .s:fmt_revr
 "		TabLineFill"
 "		TabLineSel"
-exe "hi! Title"         .s:fg_comment     .s:bg_none        .s:fmt_none
+exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 "		VisualNos"
 exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none

@@ -36,10 +36,8 @@ the way that it was intended, it is HIGHLY recommended that you:
 
 ## Screenshots
 
-![shot-help](http://ompldr.org/vZjBpNg/vim3.png)
-
-![shot-bash](http://ompldr.org/vZjBpNA/vim1.png)
-
-![shot-python](http://ompldr.org/vZjBpNQ/vim2.png)
-
-![shot-markdown](http://ompldr.org/vZjBpNw/vim4.png)
+![vim-help](http://ompldr.org/vZjBpNg/vim3.png)
+![vim-bash](http://ompldr.org/vZjBpNA/vim1.png)
+![vim-python](http://ompldr.org/vZjBpNQ/vim2.png)
+![vim-markdown](http://ompldr.org/vZjExdg/vim4.png)
+![vim-diff](http://ompldr.org/vZjExdA/vim5.png)

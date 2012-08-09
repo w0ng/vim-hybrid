@@ -1,7 +1,7 @@
 " File:       hybrid.vim
 " Maintainer: Andrew Wong (w0ng)
 " URL:        https://github.com/w0ng/hybrid.vim
-" Modified:   07 August 2012
+" Modified:   09 August 2012
 " License:    MIT
 
 " DESCRIPTION:"{{{

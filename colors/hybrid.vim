@@ -83,7 +83,7 @@ if has("gui_running")
   let s:changefg   = "#d7d7ff"
 else
   let s:vmode      = "cterm"
-  let s:background = "235"
+  let s:background = "234"
   let s:window     = "59"
   let s:darkcolumn = "234"
   let s:addbg      = "65"
@@ -273,8 +273,8 @@ exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
 "		WildMenu"
 
-" Disable Normal background in terminal
-if has('gui_running')
+" Use Xresources for background colour
+if has('gui_running') || g:hybrid_use_Xresources != 1
   exe "hi! Normal"        .s:fg_foreground  .s:bg_background  .s:fmt_none
 else
   exe "hi! Normal"        .s:fg_foreground  .s:bg_none        .s:fmt_none

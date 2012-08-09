@@ -4,8 +4,7 @@
 " Modified:   07 August 2012
 " License:    MIT
 
-" ----------------------------------------------------------------------------
-" DESCRIPTION:
+" DESCRIPTION:"{{{
 " ----------------------------------------------------------------------------
 " The RGB colour palette is taken from Tomorrow-Night.vim:
 " https://github.com/chriskempson/vim-tomorrow-theme
@@ -16,8 +15,8 @@
 " The code taken from solarized.vim
 " https://github.com/altercation/vim-colors-solarized
 
-" ----------------------------------------------------------------------------
-" REQUIREMENTS AND RECOMMENDATIONS:
+"}}}
+" REQUIREMENTS AND RECOMMENDATIONS:"{{{
 " ----------------------------------------------------------------------------
 " This colourscheme is intended for use on:
 "   - gVim 7.3 for Linux, Mac and Windows.
@@ -39,8 +38,8 @@
 "       let g:hybrid_use_Xresources = 1
 "       colorscheme hybrid
 
-" ----------------------------------------------------------------------------
-" INITIALISE: 
+"}}}
+" INITIALISE: "{{{
 " ----------------------------------------------------------------------------
 if !has("gui_running") && &t_Co < 256
   finish
@@ -59,8 +58,8 @@ endif
 
 let colors_name = "hybrid"
 
-" ----------------------------------------------------------------------------
-" GUI AND CTERM PALETTES:
+"}}}
+" GUI AND CTERM PALETTES:"{{{
 " ----------------------------------------------------------------------------
 if has("gui_running")
   let s:vmode      = "gui"
@@ -77,14 +76,16 @@ if has("gui_running")
   let s:blue       = "#81a2be"
   let s:purple     = "#b294bb"
   let s:window     = "#4d5057"
+  let s:darkcolumn = "#1c1c1c"
   let s:addbg      = "#5F875F"
   let s:addfg      = "#d7ffaf"
   let s:changebg   = "#5F5F87"
   let s:changefg   = "#d7d7ff"
 else
   let s:vmode      = "cterm"
-  let s:background = "234"
+  let s:background = "235"
   let s:window     = "59"
+  let s:darkcolumn = "234"
   let s:addbg      = "65"
   let s:addfg      = "193"
   let s:changebg   = "60"
@@ -116,8 +117,8 @@ else
   endif
 endif
 
-" ----------------------------------------------------------------------------
-" FORMATTING OPTIONS:
+"}}}
+" FORMATTING OPTIONS:"{{{
 " ----------------------------------------------------------------------------
 let s:none   = "NONE"
 let s:t_none = "NONE"
@@ -129,8 +130,8 @@ let s:b      = ",bold"
 let s:u      = ",underline"
 let s:i      = ",italic"
 
-" ----------------------------------------------------------------------------
-" HIGHLIGHTING PRIMITIVES:
+"}}}
+" HIGHLIGHTING PRIMITIVES:"{{{
 " ----------------------------------------------------------------------------
 exe "let s:bg_none       = ' ".s:vmode."bg=".s:none      ."'"
 exe "let s:bg_foreground = ' ".s:vmode."bg=".s:foreground."'"
@@ -146,6 +147,7 @@ exe "let s:bg_aqua       = ' ".s:vmode."bg=".s:aqua      ."'"
 exe "let s:bg_blue       = ' ".s:vmode."bg=".s:blue      ."'"
 exe "let s:bg_purple     = ' ".s:vmode."bg=".s:purple    ."'"
 exe "let s:bg_window     = ' ".s:vmode."bg=".s:window    ."'"
+exe "let s:bg_darkcolumn = ' ".s:vmode."bg=".s:darkcolumn."'"
 exe "let s:bg_addbg      = ' ".s:vmode."bg=".s:addbg     ."'"
 exe "let s:bg_addfg      = ' ".s:vmode."bg=".s:addfg     ."'"
 exe "let s:bg_changebg   = ' ".s:vmode."bg=".s:changebg  ."'"
@@ -165,6 +167,7 @@ exe "let s:fg_aqua       = ' ".s:vmode."fg=".s:aqua      ."'"
 exe "let s:fg_blue       = ' ".s:vmode."fg=".s:blue      ."'"
 exe "let s:fg_purple     = ' ".s:vmode."fg=".s:purple    ."'"
 exe "let s:fg_window     = ' ".s:vmode."fg=".s:window    ."'"
+exe "let s:fg_darkcolumn = ' ".s:vmode."fg=".s:darkcolumn."'"
 exe "let s:fg_addbg      = ' ".s:vmode."fg=".s:addbg     ."'"
 exe "let s:fg_addfg      = ' ".s:vmode."fg=".s:addfg     ."'"
 exe "let s:fg_changebg   = ' ".s:vmode."fg=".s:changebg  ."'"
@@ -222,8 +225,8 @@ else
   let s:sp_changefg   = ""
 endif
 
-" ----------------------------------------------------------------------------
-" VIM HIGHLIGHTING: (see :help highlight-groups)
+"}}}
+" VIM HIGHLIGHTING: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "		Conceal"
@@ -237,10 +240,10 @@ exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
 exe "hi! DiffDelete"    .s:fg_background  .s:bg_red         .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
-exe "hi! VertSplit"     .s:fg_window      .s:bg_window      .s:fmt_none
-exe "hi! Folded"        .s:fg_comment     .s:bg_background  .s:fmt_none
-exe "hi! FoldColumn"    .s:fg_none        .s:bg_background  .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_background  .s:fmt_none
+exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
+exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
+exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
+exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 "		Incsearch"
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_bold
@@ -261,7 +264,7 @@ exe "hi! SpellLocal"    .s:fg_addfg       .s:bg_addbg       .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_changefg    .s:bg_changebg    .s:fmt_undr
 exe "hi! StatusLine"    .s:fg_window      .s:bg_yellow      .s:fmt_revr
 exe "hi! StatusLineNC"  .s:fg_window      .s:bg_foreground  .s:fmt_revr
-exe "hi! TabLine"       .s:fg_foreground  .s:bg_background  .s:fmt_revr
+exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "		TabLineFill"
 "		TabLineSel"
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
@@ -277,8 +280,8 @@ else
   exe "hi! Normal"        .s:fg_foreground  .s:bg_none        .s:fmt_none
 endif
 
-" ----------------------------------------------------------------------------
-" SYNTAX HIGHLIGHTING: (see :help group-name)
+"}}}
+" SYNTAX HIGHLIGHTING: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 
@@ -331,11 +334,10 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none         .s:fmt_none
 "   qfFileName"
 "   qfLineNr"
 "   qfError"
-
-" ----------------------------------------------------------------------------
-" LEGAL:
-" ----------------------------------------------------------------------------
 "
+"}}}
+" LEGAL:"{{{
+" ----------------------------------------------------------------------------
 " Copyright (c) 2011 Ethan Schoonover
 " Copyright (c) 2009-2012 NanoTech
 " Copyright (c) 2012 w0ng
@@ -362,3 +364,5 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none         .s:fmt_none
 " TRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CON‐
 " NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 " THE SOFTWARE.
+
+" }}}

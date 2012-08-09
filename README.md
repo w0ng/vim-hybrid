@@ -19,15 +19,17 @@ This colourscheme is intended for use on:
 By default, Vim will use the closest matching cterm equivalent of the RGB
 colours.
 
-## Recommendations for terminal vim users
+## Recommendation for terminal vim users
 
 Due to the limited 256 palette, colours in Vim and gVim will still be slightly
 different. In order to get the same colours as gVim and use this colourscheme
-the way that it was intended, it is HIGHLY recommended that you:
+the way that it was intended, it is highly recommended that you:
 
 1.  Add these colours to ~/.Xresources:
 
         https://gist.github.com/3278077
+        
+    ![palette](http://ompldr.org/vZjFmcw/palette.png)
 
 2.  Use Xresources colours by setting in ~/.vimrc:
 
@@ -36,8 +38,13 @@ the way that it was intended, it is HIGHLY recommended that you:
 
 ## Screenshots
 
-![vim-help](http://ompldr.org/vZjBpNg/vim3.png)
+![vim-help](http://ompldr.org/vzjbpng/vim3.png)
+
 ![vim-bash](http://ompldr.org/vZjBpNA/vim1.png)
+
 ![vim-python](http://ompldr.org/vZjBpNQ/vim2.png)
+
 ![vim-markdown](http://ompldr.org/vZjExdg/vim4.png)
+
 ![vim-diff](http://ompldr.org/vZjExdA/vim5.png)
+

@@ -29,7 +29,7 @@ the way that it was intended, it is highly recommended that you:
 
         https://gist.github.com/3278077
         
-    ![palette](http://dl.dropbox.com/u/23813887/vim-python.png)
+    ![palette](http://dl.dropbox.com/u/23813887/Xresources-palette.png)
 
 2.  Use Xresources colours by setting in ~/.vimrc:
 

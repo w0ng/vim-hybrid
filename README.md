@@ -4,9 +4,9 @@ A dark colourscheme for Vim that combines the:
 
 -   colour palette from [Tomorrow-Night](https://github.com/chriskempson/vim-tomorrow-theme).
 
--   syntax group highlighting scheme from [jellybeans](https://github.com/nanotech/jellybeans.vim)
+-   syntax group highlighting scheme from [Jellybeans](https://github.com/nanotech/jellybeans.vim)
 
--   Vim code from [solarized](https://github.com/altercation/vim-colors-solarized)
+-   Vim code from [Solarized](https://github.com/altercation/vim-colors-solarized)
 
 ## Requirements
 
@@ -14,7 +14,7 @@ This colourscheme is intended for use on:
 
 -   gVim 7.3 for Linux, Mac and Windows.
 
--   Vim 7.3 for Linux, using a 256 colour enabled terminal.
+-   Vim 7.3 for Linux and Mac, using a 256 colour enabled terminal.
 
 By default, Vim will use the closest matching cterm equivalent of the RGB
 colours.
@@ -29,7 +29,7 @@ the way that it was intended, it is highly recommended that you:
 
         https://gist.github.com/3278077
         
-    ![palette](http://ompldr.org/vZjFmcw/palette.png)
+    ![palette](http://dl.dropbox.com/u/23813887/vim-python.png)
 
 2.  Use Xresources colours by setting in ~/.vimrc:
 
@@ -38,13 +38,13 @@ the way that it was intended, it is highly recommended that you:
 
 ## Screenshots
 
-![vim-help](http://ompldr.org/vzjbpng/vim3.png)
+![vim-help](http://dl.dropbox.com/u/23813887/vim-help.png)
 
-![vim-bash](http://ompldr.org/vZjBpNA/vim1.png)
+![vim-bash](http://dl.dropbox.com/u/23813887/vim-bash.png)
 
-![vim-python](http://ompldr.org/vZjBpNQ/vim2.png)
+![vim-python](http://dl.dropbox.com/u/23813887/vim-python.png)
 
-![vim-markdown](http://ompldr.org/vZjExdg/vim4.png)
+![vim-markdown](http://dl.dropbox.com/u/23813887/vim-markdown.png)
 
-![vim-diff](http://ompldr.org/vZjExdA/vim5.png)
+![vim-diff](http://dl.dropbox.com/u/23813887/vim-diff.png)
 

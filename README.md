@@ -39,13 +39,18 @@ the way that it was intended, it is highly recommended that you:
 ## Screenshots
 
 Help
+
 ![vim-help](http://dl.dropbox.com/u/23813887/vim-help.png)
 
 Python
+
 ![vim-python](http://dl.dropbox.com/u/23813887/vim-python.png)
 
 Markdown
+
 ![vim-markdown](http://dl.dropbox.com/u/23813887/vim-markdown.png)
 
 Diff
+
 ![vim-diff](http://dl.dropbox.com/u/23813887/vim-diff.png)
+

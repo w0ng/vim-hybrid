@@ -75,7 +75,7 @@ if has("gui_running")
   let s:aqua       = "#8abeb7"
   let s:blue       = "#81a2be"
   let s:purple     = "#b294bb"
-  let s:window     = "#4d5057"
+  let s:window     = "#303030"
   let s:darkcolumn = "#1c1c1c"
   let s:addbg      = "#5F875F"
   let s:addfg      = "#d7ffaf"
@@ -84,7 +84,7 @@ if has("gui_running")
 else
   let s:vmode      = "cterm"
   let s:background = "234"
-  let s:window     = "59"
+  let s:window     = "236"
   let s:darkcolumn = "234"
   let s:addbg      = "65"
   let s:addfg      = "193"
@@ -262,8 +262,8 @@ exe "hi! SpellBad"      .s:fg_background  .s:bg_red         .s:fmt_undr
 exe "hi! SpellCap"      .s:fg_background  .s:bg_blue        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_addfg       .s:bg_addbg       .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_changefg    .s:bg_changebg    .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_window      .s:bg_yellow      .s:fmt_revr
-exe "hi! StatusLineNC"  .s:fg_window      .s:bg_foreground  .s:fmt_revr
+exe "hi! StatusLine"    .s:fg_comment     .s:bg_background  .s:fmt_revr
+exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "		TabLineFill"
 "		TabLineSel"

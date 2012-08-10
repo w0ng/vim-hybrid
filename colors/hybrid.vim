@@ -1,10 +1,10 @@
 " File:       hybrid.vim
 " Maintainer: Andrew Wong (w0ng)
 " URL:        https://github.com/w0ng/hybrid.vim
-" Modified:   10 Aug 2012 01:54PM AEST
+" Modified:   10 Aug 2012 06:42PM AEST
 " License:    MIT
 
-" DESCRIPTION:"{{{
+" Description:"{{{
 " ----------------------------------------------------------------------------
 " The RGB colour palette is taken from Tomorrow-Night.vim:
 " https://github.com/chriskempson/vim-tomorrow-theme
@@ -16,7 +16,7 @@
 " https://github.com/altercation/vim-colors-solarized
 
 "}}}
-" REQUIREMENTS AND RECOMMENDATIONS:"{{{
+" Requirements And Recommendations:"{{{
 " ----------------------------------------------------------------------------
 " This colourscheme is intended for use on:
 "   - gVim 7.3 for Linux, Mac and Windows.
@@ -39,7 +39,7 @@
 "       colorscheme hybrid
 
 "}}}
-" INITIALISE: "{{{
+" Initialisation:"{{{
 " ----------------------------------------------------------------------------
 if !has("gui_running") && &t_Co < 256
   finish
@@ -59,7 +59,7 @@ endif
 let colors_name = "hybrid"
 
 "}}}
-" GUI AND CTERM PALETTES:"{{{
+" GUI And Cterm Palettes:"{{{
 " ----------------------------------------------------------------------------
 if has("gui_running")
   let s:vmode      = "gui"
@@ -118,7 +118,7 @@ else
 endif
 
 "}}}
-" FORMATTING OPTIONS:"{{{
+" Formatting Options:"{{{
 " ----------------------------------------------------------------------------
 let s:none   = "NONE"
 let s:t_none = "NONE"
@@ -131,7 +131,7 @@ let s:u      = ",underline"
 let s:i      = ",italic"
 
 "}}}
-" HIGHLIGHTING PRIMITIVES:"{{{
+" Highlighting Primitives:"{{{
 " ----------------------------------------------------------------------------
 exe "let s:bg_none       = ' ".s:vmode."bg=".s:none      ."'"
 exe "let s:bg_foreground = ' ".s:vmode."bg=".s:foreground."'"
@@ -226,7 +226,7 @@ else
 endif
 
 "}}}
-" VIM HIGHLIGHTING: (see :help highlight-groups)"{{{
+" Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "		Conceal"
@@ -281,7 +281,7 @@ else
 endif
 
 "}}}
-" SYNTAX HIGHLIGHTING: (see :help group-name)"{{{
+" Generic Syntax Highlighting: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 
@@ -329,14 +329,35 @@ exe "hi! Error"           .s:fg_background  .s:bg_red         .s:fmt_none
 
 exe "hi! Todo"            .s:fg_foreground  .s:bg_background  .s:fmt_none
 
-" Quickfix highlighting
+" Quickfix window highlighting
 exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none         .s:fmt_none
 "   qfFileName"
 "   qfLineNr"
 "   qfError"
-"
+
 "}}}
-" LEGAL:"{{{
+" Diff Syntax Highlighting:"{{{
+" ----------------------------------------------------------------------------
+" Diff
+"		diffOldFile
+"		diffNewFile
+"		diffFile
+"		diffOnly
+"		diffIdentical
+"		diffDiffer
+"		diffBDiffer
+"		diffIsA
+"		diffNoEOL
+"		diffCommon
+hi! link diffRemoved Constant
+"		diffChanged
+hi! link diffAdded Special
+"		diffLine
+"		diffSubname
+"		diffComment
+
+"}}}
+" Legal:"{{{
 " ----------------------------------------------------------------------------
 " Copyright (c) 2011 Ethan Schoonover
 " Copyright (c) 2009-2012 NanoTech

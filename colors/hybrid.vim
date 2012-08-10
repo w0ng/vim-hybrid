@@ -1,7 +1,7 @@
 " File:       hybrid.vim
 " Maintainer: Andrew Wong (w0ng)
 " URL:        https://github.com/w0ng/hybrid.vim
-" Modified:   09 August 2012
+" Modified:   10 Aug 2012 01:54PM AEST
 " License:    MIT
 
 " DESCRIPTION:"{{{
@@ -247,7 +247,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 "		Incsearch"
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_bold
-exe "hi! MatchParen"    .s:fg_none        .s:bg_selection   .s:fmt_none
+exe "hi! MatchParen"    .s:fg_foreground  .s:bg_blue        .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none

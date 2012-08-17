@@ -327,10 +327,10 @@ exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 
 exe "hi! Error"           .s:fg_background  .s:bg_red         .s:fmt_none
 
-exe "hi! Todo"            .s:fg_foreground  .s:bg_background  .s:fmt_none
+exe "hi! Todo"            .s:fg_foreground  .s:bg_none        .s:fmt_none
 
 " Quickfix window highlighting
-exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none         .s:fmt_none
+exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 "   qfFileName"
 "   qfLineNr"
 "   qfError"

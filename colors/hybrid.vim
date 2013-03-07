@@ -299,7 +299,7 @@ exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
 "		Conditional"
 "		Repeat"
 "		Label"
-exe "hi! Operator"        .s:fg_foreground  .s:bg_none        .s:fmt_none
+exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
 "		Keyword"
 "		Exception"
 

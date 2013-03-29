@@ -19,7 +19,7 @@ This colourscheme is intended for use on:
 By default, Vim will use the closest matching cterm equivalent of the RGB
 colours.
 
-## Recommendation for terminal vim users
+## Recommended terminal colours
 
 Due to the limited 256 palette, colours in Vim and gVim will still be slightly
 different. In order to get the same colours as gVim and use this colourscheme

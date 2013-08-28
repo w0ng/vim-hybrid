@@ -36,6 +36,23 @@ the way that it was intended, it is highly recommended that you:
         let g:hybrid_use_Xresources = 1
         colorscheme hybrid
 
+## iTerm2
+
+The Xresources strategy will not work for iTerm2. The theme looks good without
+any changes but for full compatibility and to also get Hybrid on the terminal
+do the following:
+
+1.  Install this color preset on your iTerm2:
+
+        https://gist.github.com/luan/6362811
+
+    ![iterm_palette](https://dl.dropboxusercontent.com/u/33868236/assets/iterm_palette.png)
+
+2. Use iTerm colours by setting in ~/.vimrc:
+
+        let g:hybrid_use_iTerm_colors = 1
+        colorscheme hybrid
+
 ## Screenshots
 
 Help

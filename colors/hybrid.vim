@@ -81,6 +81,7 @@ let s:palette.gui.addfg      = { 'dark' : "#d7ffaf", 'light' : "#005f00" }
 let s:palette.gui.changebg   = { 'dark' : "#5F5F87", 'light' : "#d7d7ff" }
 let s:palette.gui.changefg   = { 'dark' : "#d7d7ff", 'light' : "#5f005f" }
 let s:palette.gui.delbg      = { 'dark' : "#cc6666", 'light' : "#ffd7d7" }
+let s:palette.gui.bling      = { 'dark' : "#008800", 'light' : "#ff5f00" }
 
 let s:palette.cterm.background = { 'dark' : "234", 'light' : "254" }
 let s:palette.cterm.window     = { 'dark' : "236", 'light' : "247" }
@@ -89,6 +90,7 @@ let s:palette.cterm.addbg      = { 'dark' : "65" , 'light' : "194" }
 let s:palette.cterm.addfg      = { 'dark' : "193", 'light' : "22"  }
 let s:palette.cterm.changebg   = { 'dark' : "60" , 'light' : "189" }
 let s:palette.cterm.changefg   = { 'dark' : "189", 'light' : "53"  }
+let s:palette.cterm.bling      = { 'dark' : "28",  'light' : "201" }
 
 if g:hybrid_use_Xresources == 1
   let s:palette.cterm.foreground = { 'dark' : "15" }  " White
@@ -175,6 +177,7 @@ call s:build_prim('bg', 'addfg')
 call s:build_prim('bg', 'changebg')
 call s:build_prim('bg', 'changefg')
 call s:build_prim('bg', 'delbg')
+call s:build_prim('bg', 'bling')
 
 let s:fg_none = ' guifg=NONE ctermfg=NONE'
 call s:build_prim('fg', 'foreground')
@@ -230,6 +233,7 @@ exe "let s:sp_changefg   = ' guisp=". s:palette.gui.changefg[s:style]   ."'"
 "}}}
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
+exe "hi! BlingHilight"  .s:fg_background  .s:bg_bling       .s:fmt_none
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "		Conceal"
 "		Cursor"

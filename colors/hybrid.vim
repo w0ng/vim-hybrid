@@ -41,81 +41,97 @@
 "}}}
 " Initialisation:"{{{
 " ----------------------------------------------------------------------------
-if !has("gui_running") && &t_Co < 256
-  finish
-endif
 
 if !exists("g:hybrid_use_Xresources")
   let g:hybrid_use_Xresources = 0
 endif
 
-set background=dark
 hi clear
 
 if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "hybrid"
+let s:style = &background
+
+let g:colors_name = "hybrid"
 
 "}}}
 " GUI And Cterm Palettes:"{{{
 " ----------------------------------------------------------------------------
-if has("gui_running")
-  let s:vmode      = "gui"
-  let s:background = "#1d1f21"
-  let s:foreground = "#c5c8c6"
-  let s:selection  = "#373b41"
-  let s:line       = "#282a2e"
-  let s:comment    = "#707880"
-  let s:red        = "#cc6666"
-  let s:orange     = "#de935f"
-  let s:yellow     = "#f0c674"
-  let s:green      = "#b5bd68"
-  let s:aqua       = "#8abeb7"
-  let s:blue       = "#81a2be"
-  let s:purple     = "#b294bb"
-  let s:window     = "#303030"
-  let s:darkcolumn = "#1c1c1c"
-  let s:addbg      = "#5F875F"
-  let s:addfg      = "#d7ffaf"
-  let s:changebg   = "#5F5F87"
-  let s:changefg   = "#d7d7ff"
+
+let s:palette = {'gui' : {} , 'cterm' : {}}
+
+let s:palette.gui.background = { 'dark' : "#1d1f21", 'light' : "#e4e4e4" }
+let s:palette.gui.foreground = { 'dark' : "#c5c8c6", 'light' : "#000000" }
+let s:palette.gui.selection  = { 'dark' : "#373b41", 'light' : "#bcbcbc" }
+let s:palette.gui.line       = { 'dark' : "#282a2e", 'light' : "#d0d0d0" }
+let s:palette.gui.comment    = { 'dark' : "#707880", 'light' : "#5f5f5f" }
+let s:palette.gui.red        = { 'dark' : "#cc6666", 'light' : "#5f0000" }
+let s:palette.gui.orange     = { 'dark' : "#de935f", 'light' : "#875f00" }
+let s:palette.gui.yellow     = { 'dark' : "#f0c674", 'light' : "#5f5f00" }
+let s:palette.gui.green      = { 'dark' : "#b5bd68", 'light' : "#005f00" }
+let s:palette.gui.aqua       = { 'dark' : "#8abeb7", 'light' : "#005f5f" }
+let s:palette.gui.blue       = { 'dark' : "#81a2be", 'light' : "#00005f" }
+let s:palette.gui.purple     = { 'dark' : "#b294bb", 'light' : "#5f005f" }
+let s:palette.gui.window     = { 'dark' : "#303030", 'light' : "#9e9e9e" }
+let s:palette.gui.darkcolumn = { 'dark' : "#1c1c1c", 'light' : "#808080" }
+let s:palette.gui.addbg      = { 'dark' : "#5F875F", 'light' : "#d7ffd7" }
+let s:palette.gui.addfg      = { 'dark' : "#d7ffaf", 'light' : "#005f00" }
+let s:palette.gui.changebg   = { 'dark' : "#5F5F87", 'light' : "#d7d7ff" }
+let s:palette.gui.changefg   = { 'dark' : "#d7d7ff", 'light' : "#5f005f" }
+let s:palette.gui.delbg      = { 'dark' : "#cc6666", 'light' : "#ffd7d7" }
+let s:palette.gui.bling      = { 'dark' : "#008800", 'light' : "#ff5f00" }
+
+let s:palette.cterm.background = { 'dark' : "234", 'light' : "254" }
+let s:palette.cterm.window     = { 'dark' : "236", 'light' : "247" }
+let s:palette.cterm.darkcolumn = { 'dark' : "234", 'light' : "244" }
+let s:palette.cterm.addbg      = { 'dark' : "65" , 'light' : "194" }
+let s:palette.cterm.addfg      = { 'dark' : "193", 'light' : "22"  }
+let s:palette.cterm.changebg   = { 'dark' : "60" , 'light' : "189" }
+let s:palette.cterm.changefg   = { 'dark' : "189", 'light' : "53"  }
+let s:palette.cterm.bling      = { 'dark' : "28",  'light' : "201" }
+
+if g:hybrid_use_Xresources == 1
+  let s:palette.cterm.foreground = { 'dark' : "15" }  " White
+  let s:palette.cterm.selection  = { 'dark' : "8" }   " DarkGrey
+  let s:palette.cterm.line       = { 'dark' : "0" }   " Black
+  let s:palette.cterm.comment    = { 'dark' : "7" }   " LightGrey
+  let s:palette.cterm.red        = { 'dark' : "9" }   " LightRed
+  let s:palette.cterm.orange     = { 'dark' : "3" }   " DarkYellow
+  let s:palette.cterm.yellow     = { 'dark' : "11" }  " LightYellow
+  let s:palette.cterm.green      = { 'dark' : "10" }  " LightGreen
+  let s:palette.cterm.aqua       = { 'dark' : "14" }  " LightCyan
+  let s:palette.cterm.blue       = { 'dark' : "12" }  " LightBlue
+  let s:palette.cterm.purple     = { 'dark' : "13" }  " LightMagenta
+  let s:palette.cterm.delbg      = { 'dark' : "9" }   " LightRed
 else
-  let s:vmode      = "cterm"
-  let s:background = "234"
-  let s:window     = "236"
-  let s:darkcolumn = "234"
-  let s:addbg      = "65"
-  let s:addfg      = "193"
-  let s:changebg   = "60"
-  let s:changefg   = "189"
-  if g:hybrid_use_Xresources == 1
-    let s:foreground = "15"   " White
-    let s:selection  = "8"    " DarkGrey
-    let s:line       = "0"    " Black
-    let s:comment    = "7"    " LightGrey
-    let s:red        = "9"    " LightRed
-    let s:orange     = "3"    " DarkYellow
-    let s:yellow     = "11"   " LightYellow
-    let s:green      = "10"   " LightGreen
-    let s:aqua       = "14"   " LightCyan
-    let s:blue       = "12"   " LightBlue
-    let s:purple     = "13"   " LightMagenta
-  else
-    let s:foreground = "250"
-    let s:selection  = "237"
-    let s:line       = "235"
-    let s:comment    = "243"
-    let s:red        = "167"
-    let s:orange     = "173"
-    let s:yellow     = "221"
-    let s:green      = "143"
-    let s:aqua       = "109"
-    let s:blue       = "110"
-    let s:purple     = "139"
-  endif
+  let s:palette.cterm.foreground = { 'dark' : "250" }
+  let s:palette.cterm.selection  = { 'dark' : "237" }
+  let s:palette.cterm.line       = { 'dark' : "235" }
+  let s:palette.cterm.comment    = { 'dark' : "243" }
+  let s:palette.cterm.red        = { 'dark' : "167" }
+  let s:palette.cterm.orange     = { 'dark' : "173" }
+  let s:palette.cterm.yellow     = { 'dark' : "221" }
+  let s:palette.cterm.green      = { 'dark' : "143" }
+  let s:palette.cterm.aqua       = { 'dark' : "109" }
+  let s:palette.cterm.blue       = { 'dark' : "110" }
+  let s:palette.cterm.purple     = { 'dark' : "139" }
+  let s:palette.cterm.delbg      = { 'dark' : "167" }
 endif
+
+let s:palette.cterm.foreground.light = "16"
+let s:palette.cterm.selection.light  = "250"
+let s:palette.cterm.line.light       = "252"
+let s:palette.cterm.comment.light    = "59"
+let s:palette.cterm.red.light        = "52"
+let s:palette.cterm.orange.light     = "94"
+let s:palette.cterm.yellow.light     = "58"
+let s:palette.cterm.green.light      = "22"
+let s:palette.cterm.aqua.light       = "23"
+let s:palette.cterm.blue.light       = "17"
+let s:palette.cterm.purple.light     = "53"
+let s:palette.cterm.delbg.light      = "224"
 
 "}}}
 " Formatting Options:"{{{
@@ -133,101 +149,91 @@ let s:i      = ",italic"
 "}}}
 " Highlighting Primitives:"{{{
 " ----------------------------------------------------------------------------
-exe "let s:bg_none       = ' ".s:vmode."bg=".s:none      ."'"
-exe "let s:bg_foreground = ' ".s:vmode."bg=".s:foreground."'"
-exe "let s:bg_background = ' ".s:vmode."bg=".s:background."'"
-exe "let s:bg_selection  = ' ".s:vmode."bg=".s:selection ."'"
-exe "let s:bg_line       = ' ".s:vmode."bg=".s:line      ."'"
-exe "let s:bg_comment    = ' ".s:vmode."bg=".s:comment   ."'"
-exe "let s:bg_red        = ' ".s:vmode."bg=".s:red       ."'"
-exe "let s:bg_orange     = ' ".s:vmode."bg=".s:orange    ."'"
-exe "let s:bg_yellow     = ' ".s:vmode."bg=".s:yellow    ."'"
-exe "let s:bg_green      = ' ".s:vmode."bg=".s:green     ."'"
-exe "let s:bg_aqua       = ' ".s:vmode."bg=".s:aqua      ."'"
-exe "let s:bg_blue       = ' ".s:vmode."bg=".s:blue      ."'"
-exe "let s:bg_purple     = ' ".s:vmode."bg=".s:purple    ."'"
-exe "let s:bg_window     = ' ".s:vmode."bg=".s:window    ."'"
-exe "let s:bg_darkcolumn = ' ".s:vmode."bg=".s:darkcolumn."'"
-exe "let s:bg_addbg      = ' ".s:vmode."bg=".s:addbg     ."'"
-exe "let s:bg_addfg      = ' ".s:vmode."bg=".s:addfg     ."'"
-exe "let s:bg_changebg   = ' ".s:vmode."bg=".s:changebg  ."'"
-exe "let s:bg_changefg   = ' ".s:vmode."bg=".s:changefg  ."'"
+function! s:build_prim(hi_elem, field)
+  " Given a:hi_elem = bg, a:field = comment
+  let l:vname = "s:" . a:hi_elem . "_" . a:field " s:bg_comment
+  let l:gui_assign = "gui".a:hi_elem."=".s:palette.gui[a:field][s:style] " guibg=...
+  let l:cterm_assign = "cterm".a:hi_elem."=".s:palette.cterm[a:field][s:style] " ctermbg=...
+  exe "let " . l:vname . " = ' " . l:gui_assign . " " . l:cterm_assign . "'"
+endfunction
 
-exe "let s:fg_none       = ' ".s:vmode."fg=".s:none      ."'"
-exe "let s:fg_foreground = ' ".s:vmode."fg=".s:foreground."'"
-exe "let s:fg_background = ' ".s:vmode."fg=".s:background."'"
-exe "let s:fg_selection  = ' ".s:vmode."fg=".s:selection ."'"
-exe "let s:fg_line       = ' ".s:vmode."fg=".s:line      ."'"
-exe "let s:fg_comment    = ' ".s:vmode."fg=".s:comment   ."'"
-exe "let s:fg_red        = ' ".s:vmode."fg=".s:red       ."'"
-exe "let s:fg_orange     = ' ".s:vmode."fg=".s:orange    ."'"
-exe "let s:fg_yellow     = ' ".s:vmode."fg=".s:yellow    ."'"
-exe "let s:fg_green      = ' ".s:vmode."fg=".s:green     ."'"
-exe "let s:fg_aqua       = ' ".s:vmode."fg=".s:aqua      ."'"
-exe "let s:fg_blue       = ' ".s:vmode."fg=".s:blue      ."'"
-exe "let s:fg_purple     = ' ".s:vmode."fg=".s:purple    ."'"
-exe "let s:fg_window     = ' ".s:vmode."fg=".s:window    ."'"
-exe "let s:fg_darkcolumn = ' ".s:vmode."fg=".s:darkcolumn."'"
-exe "let s:fg_addbg      = ' ".s:vmode."fg=".s:addbg     ."'"
-exe "let s:fg_addfg      = ' ".s:vmode."fg=".s:addfg     ."'"
-exe "let s:fg_changebg   = ' ".s:vmode."fg=".s:changebg  ."'"
-exe "let s:fg_changefg   = ' ".s:vmode."fg=".s:changefg  ."'"
+let s:bg_none = ' guibg=NONE ctermbg=NONE'
+call s:build_prim('bg', 'foreground')
+call s:build_prim('bg', 'background')
+call s:build_prim('bg', 'selection')
+call s:build_prim('bg', 'line')
+call s:build_prim('bg', 'comment')
+call s:build_prim('bg', 'red')
+call s:build_prim('bg', 'orange')
+call s:build_prim('bg', 'yellow')
+call s:build_prim('bg', 'green')
+call s:build_prim('bg', 'aqua')
+call s:build_prim('bg', 'blue')
+call s:build_prim('bg', 'purple')
+call s:build_prim('bg', 'window')
+call s:build_prim('bg', 'darkcolumn')
+call s:build_prim('bg', 'addbg')
+call s:build_prim('bg', 'addfg')
+call s:build_prim('bg', 'changebg')
+call s:build_prim('bg', 'changefg')
+call s:build_prim('bg', 'delbg')
+call s:build_prim('bg', 'bling')
 
-exe "let s:fmt_none      = ' ".s:vmode."=NONE".          " term=NONE"        ."'"
-exe "let s:fmt_bold      = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_bldi      = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_undr      = ' ".s:vmode."=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_undb      = ' ".s:vmode."=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
-exe "let s:fmt_undi      = ' ".s:vmode."=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_curl      = ' ".s:vmode."=NONE".s:c.      " term=NONE".s:c    ."'"
-exe "let s:fmt_ital      = ' ".s:vmode."=NONE".s:i.      " term=NONE".s:i    ."'"
-exe "let s:fmt_stnd      = ' ".s:vmode."=NONE".s:s.      " term=NONE".s:s    ."'"
-exe "let s:fmt_revr      = ' ".s:vmode."=NONE".s:r.      " term=NONE".s:r    ."'"
-exe "let s:fmt_revb      = ' ".s:vmode."=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
+let s:fg_none = ' guifg=NONE ctermfg=NONE'
+call s:build_prim('fg', 'foreground')
+call s:build_prim('fg', 'background')
+call s:build_prim('fg', 'selection')
+call s:build_prim('fg', 'line')
+call s:build_prim('fg', 'comment')
+call s:build_prim('fg', 'red')
+call s:build_prim('fg', 'orange')
+call s:build_prim('fg', 'yellow')
+call s:build_prim('fg', 'green')
+call s:build_prim('fg', 'aqua')
+call s:build_prim('fg', 'blue')
+call s:build_prim('fg', 'purple')
+call s:build_prim('fg', 'window')
+call s:build_prim('fg', 'darkcolumn')
+call s:build_prim('fg', 'addbg')
+call s:build_prim('fg', 'addfg')
+call s:build_prim('fg', 'changebg')
+call s:build_prim('fg', 'changefg')
 
-if has("gui_running")
-  exe "let s:sp_none       = ' guisp=".s:none      ."'"
-  exe "let s:sp_foreground = ' guisp=".s:foreground."'"
-  exe "let s:sp_background = ' guisp=".s:background."'"
-  exe "let s:sp_selection  = ' guisp=".s:selection ."'"
-  exe "let s:sp_line       = ' guisp=".s:line      ."'"
-  exe "let s:sp_comment    = ' guisp=".s:comment   ."'"
-  exe "let s:sp_red        = ' guisp=".s:red       ."'"
-  exe "let s:sp_orange     = ' guisp=".s:orange    ."'"
-  exe "let s:sp_yellow     = ' guisp=".s:yellow    ."'"
-  exe "let s:sp_green      = ' guisp=".s:green     ."'"
-  exe "let s:sp_aqua       = ' guisp=".s:aqua      ."'"
-  exe "let s:sp_blue       = ' guisp=".s:blue      ."'"
-  exe "let s:sp_purple     = ' guisp=".s:purple    ."'"
-  exe "let s:sp_window     = ' guisp=".s:window    ."'"
-  exe "let s:sp_addbg      = ' guisp=".s:addbg     ."'"
-  exe "let s:sp_addfg      = ' guisp=".s:addfg     ."'"
-  exe "let s:sp_changebg   = ' guisp=".s:changebg  ."'"
-  exe "let s:sp_changefg   = ' guisp=".s:changefg  ."'"
-else
-  let s:sp_none       = ""
-  let s:sp_foreground = ""
-  let s:sp_background = ""
-  let s:sp_selection  = ""
-  let s:sp_line       = ""
-  let s:sp_comment    = ""
-  let s:sp_red        = ""
-  let s:sp_orange     = ""
-  let s:sp_yellow     = ""
-  let s:sp_green      = ""
-  let s:sp_aqua       = ""
-  let s:sp_blue       = ""
-  let s:sp_purple     = ""
-  let s:sp_window     = ""
-  let s:sp_addbg      = ""
-  let s:sp_addfg      = ""
-  let s:sp_changebg   = ""
-  let s:sp_changefg   = ""
-endif
+exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
+exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
+exe "let s:fmt_bldi = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
+exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
+exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
+exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
+exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c    ."'"
+exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i    ."'"
+exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
+exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
+exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
+
+exe "let s:sp_none       = ' guisp=".s:none      ."'"
+exe "let s:sp_foreground = ' guisp=". s:palette.gui.foreground[s:style] ."'"
+exe "let s:sp_background = ' guisp=". s:palette.gui.background[s:style] ."'"
+exe "let s:sp_selection  = ' guisp=". s:palette.gui.selection[s:style]  ."'"
+exe "let s:sp_line       = ' guisp=". s:palette.gui.line[s:style]       ."'"
+exe "let s:sp_comment    = ' guisp=". s:palette.gui.comment[s:style]    ."'"
+exe "let s:sp_red        = ' guisp=". s:palette.gui.red[s:style]        ."'"
+exe "let s:sp_orange     = ' guisp=". s:palette.gui.orange[s:style]     ."'"
+exe "let s:sp_yellow     = ' guisp=". s:palette.gui.yellow[s:style]     ."'"
+exe "let s:sp_green      = ' guisp=". s:palette.gui.green[s:style]      ."'"
+exe "let s:sp_aqua       = ' guisp=". s:palette.gui.aqua[s:style]       ."'"
+exe "let s:sp_blue       = ' guisp=". s:palette.gui.blue[s:style]       ."'"
+exe "let s:sp_purple     = ' guisp=". s:palette.gui.purple[s:style]     ."'"
+exe "let s:sp_window     = ' guisp=". s:palette.gui.window[s:style]     ."'"
+exe "let s:sp_addbg      = ' guisp=". s:palette.gui.addbg[s:style]      ."'"
+exe "let s:sp_addfg      = ' guisp=". s:palette.gui.addfg[s:style]      ."'"
+exe "let s:sp_changebg   = ' guisp=". s:palette.gui.changebg[s:style]   ."'"
+exe "let s:sp_changefg   = ' guisp=". s:palette.gui.changefg[s:style]   ."'"
 
 "}}}
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
+exe "hi! BlingHilight"  .s:fg_background  .s:bg_bling       .s:fmt_none
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "		Conceal"
 "		Cursor"
@@ -237,7 +243,7 @@ exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
 exe "hi! Directory"     .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! DiffAdd"       .s:fg_addfg       .s:bg_addbg       .s:fmt_none
 exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
-exe "hi! DiffDelete"    .s:fg_background  .s:bg_red         .s:fmt_none
+exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
@@ -357,6 +363,12 @@ hi! link diffAdded Special
 "		diffComment
 
 "}}}
+"
+" This is needed for some reason: {{{
+
+let &background = s:style
+
+" }}}
 " Legal:"{{{
 " ----------------------------------------------------------------------------
 " Copyright (c) 2011 Ethan Schoonover

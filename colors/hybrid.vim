@@ -96,6 +96,10 @@ if has("gui_running")
   let s:addfg      = "#d7ffaf"
   let s:changebg   = "#5F5F87"
   let s:changefg   = "#d7d7ff"
+  let s:darkblue   = "#00005f"
+  let s:darkcyan   = "#005f5f"
+  let s:darkred    = "#5f0000"
+  let s:darkpurple = "#5f005f"
 else
   let s:vmode      = "cterm"
   let s:background = "234"
@@ -105,6 +109,10 @@ else
   let s:addfg      = "193"
   let s:changebg   = "60"
   let s:changefg   = "189"
+  let s:darkblue   = "17"
+  let s:darkcyan   = "24"
+  let s:darkred    = "52"
+  let s:darkpurple = "53"
   if g:hybrid_use_Xresources == 1
     let s:foreground = "15"   " White
     let s:selection  = "8"    " DarkGrey
@@ -183,6 +191,10 @@ exe "let s:bg_addbg      = ' ".s:vmode."bg=".s:addbg     ."'"
 exe "let s:bg_addfg      = ' ".s:vmode."bg=".s:addfg     ."'"
 exe "let s:bg_changebg   = ' ".s:vmode."bg=".s:changebg  ."'"
 exe "let s:bg_changefg   = ' ".s:vmode."bg=".s:changefg  ."'"
+exe "let s:bg_darkblue   = ' ".s:vmode."bg=".s:darkblue  ."'"
+exe "let s:bg_darkcyan   = ' ".s:vmode."bg=".s:darkcyan  ."'"
+exe "let s:bg_darkred    = ' ".s:vmode."bg=".s:darkred   ."'"
+exe "let s:bg_darkpurple = ' ".s:vmode."bg=".s:darkpurple."'"
 
 exe "let s:fg_none       = ' ".s:vmode."fg=".s:none      ."'"
 exe "let s:fg_foreground = ' ".s:vmode."fg=".s:foreground."'"
@@ -203,6 +215,10 @@ exe "let s:fg_addbg      = ' ".s:vmode."fg=".s:addbg     ."'"
 exe "let s:fg_addfg      = ' ".s:vmode."fg=".s:addfg     ."'"
 exe "let s:fg_changebg   = ' ".s:vmode."fg=".s:changebg  ."'"
 exe "let s:fg_changefg   = ' ".s:vmode."fg=".s:changefg  ."'"
+exe "let s:fg_darkblue   = ' ".s:vmode."fg=".s:darkblue  ."'"
+exe "let s:fg_darkcyan   = ' ".s:vmode."fg=".s:darkcyan  ."'"
+exe "let s:fg_darkred    = ' ".s:vmode."fg=".s:darkred   ."'"
+exe "let s:fg_darkpurple = ' ".s:vmode."fg=".s:darkpurple."'"
 
 exe "let s:fmt_none      = ' ".s:vmode."=NONE".          " term=NONE"        ."'"
 exe "let s:fmt_bold      = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b    ."'"
@@ -235,6 +251,10 @@ if has("gui_running")
   exe "let s:sp_addfg      = ' guisp=".s:addfg     ."'"
   exe "let s:sp_changebg   = ' guisp=".s:changebg  ."'"
   exe "let s:sp_changefg   = ' guisp=".s:changefg  ."'"
+  exe "let s:sp_darkblue   = ' guisp=".s:darkblue  ."'"
+  exe "let s:sp_darkcyan   = ' guisp=".s:darkcyan  ."'"
+  exe "let s:sp_darkred    = ' guisp=".s:darkred   ."'"
+  exe "let s:sp_darkpurple = ' guisp=".s:darkpurple."'"
 else
   let s:sp_none       = ""
   let s:sp_foreground = ""
@@ -254,6 +274,10 @@ else
   let s:sp_addfg      = ""
   let s:sp_changebg   = ""
   let s:sp_changefg   = ""
+  let s:sp_darkblue   = ""
+  let s:sp_darkcyan   = ""
+  let s:sp_darkred    = ""
+  let s:sp_darkpurple = ""
 endif
 
 "}}}
@@ -289,10 +313,10 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_undr
-exe "hi! SpellCap"      .s:fg_blue        .s:bg_none        .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_none        .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_purple      .s:bg_none        .s:fmt_undr
+exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue    .s:fmt_undr
+exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_darkcyan    .s:fmt_undr
+exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred     .s:fmt_undr
+exe "hi! SpellRare"     .s:fg_purple      .s:bg_darkpurple  .s:fmt_undr
 exe "hi! StatusLine"    .s:fg_comment     .s:bg_background  .s:fmt_revr
 exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
@@ -356,7 +380,7 @@ exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
 
 exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 
-exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_undr
+exe "hi! Error"           .s:fg_red         .s:bg_darkred     .s:fmt_undr
 
 exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_none
 

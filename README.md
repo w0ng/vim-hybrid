@@ -71,3 +71,6 @@ Diff
 
 ![vim-diff](http://dl.dropbox.com/u/23813887/vim-diff.png)
 
+Spell check
+
+![vim-spell](https://dl.dropboxusercontent.com/u/23813887/vim-spell.png)

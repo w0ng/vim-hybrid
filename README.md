@@ -44,9 +44,9 @@ do the following:
 
 1.  Install this color preset on your iTerm2:
 
-        https://gist.github.com/luan/6362811
+        https://gist.github.com/w0ng/5e0a431531670e05dc4f
 
-    ![iterm_palette](https://dl.dropboxusercontent.com/u/33868236/assets/iterm_palette.png)
+    ![iterm_palette](http://i.imgur.com/wSWCyen.png)
 
 2. Use iTerm colours by setting in ~/.vimrc:
 

@@ -127,10 +127,12 @@ else
     let s:purple     = "13"   " LightMagenta
   elseif g:hybrid_use_iTerm_colors == 1
     let s:background = "NONE"
-    let s:foreground = "7"
+    "let s:foreground = "7"
+    let s:foreground = "15"
     let s:selection  = "0"
     let s:line       = "0"
-    let s:comment    = "15"
+    "let s:comment    = "15"
+    let s:comment    = "7"
     let s:red        = "1"
     let s:orange     = "11"
     let s:yellow     = "3"

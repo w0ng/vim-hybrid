@@ -12,15 +12,15 @@
 " The syntax highlighting scheme is taken from jellybeans.vim:
 " https://github.com/nanotech/jellybeans.vim
 "
-" The code taken from solarized.vim
+" The is code taken from solarized.vim:
 " https://github.com/altercation/vim-colors-solarized
 
 "}}}
 " Requirements And Recommendations:"{{{
 " ----------------------------------------------------------------------------
 " This colourscheme is intended for use on:
-"   - gVim 7.3 for Linux, Mac and Windows.
-"   - Vim 7.3 for Linux, using a 256 colour enabled terminal.
+"   - gVim 7.3 for Linux, Mac and Windows
+"   - Vim 7.3 for Linux, using a 256 colour enabled terminal
 "
 " By default, Vim will use the closest matching cterm equivalent of the RGB
 " colours.
@@ -39,9 +39,10 @@
 "       colorscheme hybrid
 "
 " For iTerm2 users:
+"
 " 1.  Install this color preset on your iTerm2:
 "
-"       https://gist.github.com/luan/6362811
+"       https://github.com/w0ng/dotfiles/blob/master/iterm2/hybrid.itermcolors
 "
 " 2. Use iTerm colours by setting in ~/.vimrc:
 "

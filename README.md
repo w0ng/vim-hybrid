@@ -6,7 +6,7 @@ A dark colourscheme for Vim that combines the:
 
 -   syntax group highlighting scheme from [Jellybeans](https://github.com/nanotech/jellybeans.vim)
 
--   Vim code from [Solarized](https://github.com/altercation/vim-colors-solarized)
+-   Vimscript from [Solarized](https://github.com/altercation/vim-colors-solarized)
 
 ## Requirements
 
@@ -44,7 +44,7 @@ do the following:
 
 1.  Install this color preset on your iTerm2:
 
-        https://gist.github.com/w0ng/5e0a431531670e05dc4f
+        https://github.com/w0ng/dotfiles/blob/master/iterm2/hybrid.itermcolors
 
     ![iterm_palette](http://i.imgur.com/wSWCyen.png)
 

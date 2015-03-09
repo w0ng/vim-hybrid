@@ -46,7 +46,7 @@
 "
 " 2. Use iTerm colours by setting in ~/.vimrc:
 "
-"       let g:hybrid_use_iTerm_colors = 1
+"       let g:hybrid_use_Xresources = 1
 "       colorscheme hybrid
 "
 
@@ -59,10 +59,6 @@ endif
 
 if !exists("g:hybrid_use_Xresources")
   let g:hybrid_use_Xresources = 0
-endif
-
-if !exists("g:hybrid_use_iTerm_colors")
-  let g:hybrid_use_iTerm_colors = 0
 endif
 
 set background=dark
@@ -126,19 +122,6 @@ else
     let s:aqua       = "14"   " LightCyan
     let s:blue       = "12"   " LightBlue
     let s:purple     = "13"   " LightMagenta
-  elseif g:hybrid_use_iTerm_colors == 1
-    let s:background = "NONE"
-    let s:foreground = "7"
-    let s:selection  = "0"
-    let s:line       = "0"
-    let s:comment    = "15"
-    let s:red        = "1"
-    let s:orange     = "11"
-    let s:yellow     = "3"
-    let s:green      = "2"
-    let s:aqua       = "6"
-    let s:blue       = "4"
-    let s:purple     = "5"
   else
     let s:foreground = "250"
     let s:selection  = "237"
@@ -327,7 +310,7 @@ exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
 "		WildMenu"
 
 " Use Xresources for background colour
-if has('gui_running') || (g:hybrid_use_Xresources != 1 && g:hybrid_use_iTerm_colors != 1)
+if has('gui_running') || g:hybrid_use_Xresources != 1
   exe "hi! Normal"        .s:fg_foreground  .s:bg_background  .s:fmt_none
 else
   exe "hi! Normal"        .s:fg_foreground  .s:bg_none        .s:fmt_none

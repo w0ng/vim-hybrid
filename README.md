@@ -65,7 +65,7 @@ the way that it was intended, change the basic 16 colours in your terminal.
 
 2. Use iTerm colours by setting in ~/.vimrc:
 
-        let g:hybrid_use_iTerm_colors = 1
+        let g:hybrid_use_Xresources = 1
         colorscheme hybrid
 
 ## Screenshots

@@ -19,11 +19,30 @@ This colourscheme is intended for use on:
 By default, Vim will use the closest matching cterm equivalent of the RGB
 colours.
 
+## Installation
+
+To install this theme, manually copy colors/hybrid.vim to:
+
+    ~/.vim/colors/hybrid.vim
+
+or instead, consider using a Vim plugin manger such as
+[NeoBundle](https://github.com/Shougo/neobundle.vim),
+[Vundle](https://github.com/gmarik/Vundle.vim), or
+[Pathogen](https://github.com/tpope/vim-pathogen).
+
+To load this theme in Vim:
+
+    :colorscheme hybrid
+
 ## Recommended terminal colours
 
 Due to the limited 256 palette, colours in Vim and gVim will still be slightly
-different. In order to get the same colours as gVim and use this colourscheme
-the way that it was intended, it is highly recommended that you:
+different.
+
+In order to get the same colours as gVim and use this colourscheme
+the way that it was intended, change the basic 16 colours in your terminal.
+
+### Linux users (rxvt-unicode, xterm)
 
 1.  Add these colours to ~/.Xresources:
 
@@ -36,13 +55,9 @@ the way that it was intended, it is highly recommended that you:
         let g:hybrid_use_Xresources = 1
         colorscheme hybrid
 
-## iTerm2
+### OSX users (iTerm2)
 
-The Xresources strategy will not work for iTerm2. The theme looks good without
-any changes but for full compatibility and to also get Hybrid on the terminal
-do the following:
-
-1.  Install this color preset on your iTerm2:
+1.  Import this color preset:
 
         https://github.com/w0ng/dotfiles/blob/master/iterm2/hybrid.itermcolors
 

@@ -93,10 +93,10 @@ let s:palette.gui.addfg      = { 'dark' : "#d7ffaf", 'light' : "#005f00" }
 let s:palette.gui.changebg   = { 'dark' : "#5F5F87", 'light' : "#d7d7ff" }
 let s:palette.gui.changefg   = { 'dark' : "#d7d7ff", 'light' : "#5f005f" }
 let s:palette.gui.delbg      = { 'dark' : "#cc6666", 'light' : "#ffd7d7" }
-let s:palette.gui.darkblue   = { 'dark' : "#00005f", 'light' : "" }
-let s:palette.gui.darkcyan   = { 'dark' : "#005f5f", 'light' : "" }
-let s:palette.gui.darkred    = { 'dark' : "#5f0000", 'light' : "" }
-let s:palette.gui.darkpurple = { 'dark' : "#5f005f", 'light' : "" }
+let s:palette.gui.darkblue   = { 'dark' : "#00005f", 'light' : "#d7ffd7" }
+let s:palette.gui.darkcyan   = { 'dark' : "#005f5f", 'light' : "#005f00" }
+let s:palette.gui.darkred    = { 'dark' : "#5f0000", 'light' : "#d7d7ff" }
+let s:palette.gui.darkpurple = { 'dark' : "#5f005f", 'light' : "#5f005f" }
 
 let s:palette.cterm.background = { 'dark' : "234", 'light' : "254" }
 let s:palette.cterm.window     = { 'dark' : "236", 'light' : "247" }
@@ -105,10 +105,10 @@ let s:palette.cterm.addbg      = { 'dark' : "65" , 'light' : "194" }
 let s:palette.cterm.addfg      = { 'dark' : "193", 'light' : "22"  }
 let s:palette.cterm.changebg   = { 'dark' : "60" , 'light' : "189" }
 let s:palette.cterm.changefg   = { 'dark' : "189", 'light' : "53"  }
-let s:palette.cterm.darkblue   = { 'dark' : "17",  'light' : "" }
-let s:palette.cterm.darkcyan   = { 'dark' : "24",  'light' : "" }
-let s:palette.cterm.darkred    = { 'dark' : "52",  'light' : "" }
-let s:palette.cterm.darkpurple = { 'dark' : "53",  'light' : "" }
+let s:palette.cterm.darkblue   = { 'dark' : "17",  'light' : "194" }
+let s:palette.cterm.darkcyan   = { 'dark' : "24",  'light' : "22" }
+let s:palette.cterm.darkred    = { 'dark' : "52",  'light' : "189" }
+let s:palette.cterm.darkpurple = { 'dark' : "53",  'light' : "53" }
 
 if g:hybrid_use_Xresources == 1
   let s:palette.cterm.foreground = { 'dark' : "15" }  " White

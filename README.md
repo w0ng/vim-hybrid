@@ -53,6 +53,7 @@ the way that it was intended, change the basic 16 colours in your terminal.
 2.  Use Xresources colours by setting in ~/.vimrc:
 
         let g:hybrid_use_Xresources = 1
+        set background=dark
         colorscheme hybrid
 
 ### OSX users (iTerm2)
@@ -66,6 +67,7 @@ the way that it was intended, change the basic 16 colours in your terminal.
 2. Use iTerm colours by setting in ~/.vimrc:
 
         let g:hybrid_use_Xresources = 1
+        set background=dark
         colorscheme hybrid
 
 ## Screenshots

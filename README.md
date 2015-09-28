@@ -32,6 +32,7 @@ or instead, consider using a Vim plugin manger such as
 
 To load this theme in Vim:
 
+    :set background=dark
     :colorscheme hybrid
 
 ## Recommended terminal colours

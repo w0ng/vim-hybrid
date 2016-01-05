@@ -102,3 +102,9 @@ is intended) define the basic 16 colours in your terminal.
 ![vim-markdown](http://dl.dropbox.com/u/23813887/vim-markdown.png)
 ![vim-diff](http://dl.dropbox.com/u/23813887/vim-diff.png)
 ![vim-spell](https://dl.dropboxusercontent.com/u/23813887/vim-spell.png)
+
+### Reduced contrast palette on OSX
+
+![vim-reduced1](https://www.dropbox.com/s/57mjs7rfzq1h128/vim-reduced1.png?dl=1)
+![vim-reduced2](https://www.dropbox.com/s/l6nvcm91llfxwjx/vim-reduced2.png?dl=1)
+![vim-reduced3](https://www.dropbox.com/s/838qoahio9klsz6/vim-reduced3.png?dl=1)

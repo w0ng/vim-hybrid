@@ -40,6 +40,9 @@ A dark colour scheme for Vim that combines the:
     colorscheme hybrid
     ```
 
+> Note: If you are using Vim under SSH or MSYS2 (Windows) add also `set t_Co=256`,
+> because you will work in color-limited space.
+
 ## Define custom terminal colours (recommended)
 
 Due to the limited 256 palette, colours in Vim and gVim will still be slightly

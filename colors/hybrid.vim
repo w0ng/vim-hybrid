@@ -197,53 +197,22 @@ function! s:build_prim(hi_elem, field)
 endfunction
 
 let s:bg_none = ' guibg=NONE ctermbg=NONE'
-call s:build_prim('bg', 'foreground')
-call s:build_prim('bg', 'background')
-call s:build_prim('bg', 'selection')
-call s:build_prim('bg', 'line')
-call s:build_prim('bg', 'comment')
-call s:build_prim('bg', 'red')
-call s:build_prim('bg', 'orange')
-call s:build_prim('bg', 'yellow')
-call s:build_prim('bg', 'green')
-call s:build_prim('bg', 'aqua')
-call s:build_prim('bg', 'blue')
-call s:build_prim('bg', 'purple')
-call s:build_prim('bg', 'window')
-call s:build_prim('bg', 'darkcolumn')
-call s:build_prim('bg', 'addbg')
-call s:build_prim('bg', 'addfg')
-call s:build_prim('bg', 'changebg')
-call s:build_prim('bg', 'changefg')
-call s:build_prim('bg', 'delbg')
-call s:build_prim('bg', 'darkblue')
-call s:build_prim('bg', 'darkcyan')
-call s:build_prim('bg', 'darkred')
-call s:build_prim('bg', 'darkpurple')
-
 let s:fg_none = ' guifg=NONE ctermfg=NONE'
-call s:build_prim('fg', 'foreground')
-call s:build_prim('fg', 'background')
-call s:build_prim('fg', 'selection')
-call s:build_prim('fg', 'line')
-call s:build_prim('fg', 'comment')
-call s:build_prim('fg', 'red')
-call s:build_prim('fg', 'orange')
-call s:build_prim('fg', 'yellow')
-call s:build_prim('fg', 'green')
-call s:build_prim('fg', 'aqua')
-call s:build_prim('fg', 'blue')
-call s:build_prim('fg', 'purple')
-call s:build_prim('fg', 'window')
-call s:build_prim('fg', 'darkcolumn')
-call s:build_prim('fg', 'addbg')
-call s:build_prim('fg', 'addfg')
-call s:build_prim('fg', 'changebg')
-call s:build_prim('fg', 'changefg')
-call s:build_prim('fg', 'darkblue')
-call s:build_prim('fg', 'darkcyan')
-call s:build_prim('fg', 'darkred')
-call s:build_prim('fg', 'darkpurple')
+
+let viewz =  ['bg', 'fg']
+let fieldz = [
+  \'foreground', 'background', 'selection', 'line',
+  \'comment', 'red', 'orange', 'yellow', 'green',
+  \'aqua', 'blue', 'purple', 'window', 'darkcolumn',
+  \'addbg', 'addfg', 'changebg', 'changefg', 'delbg',
+  \'darkblue', 'darkcyan', 'darkred', 'darkpurple'
+\]
+
+for pickView in viewz
+  for pickField in fieldz
+    call s:build_prim(pickView, pickField)
+  endfor
+endfor
 
 exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
 exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"

@@ -339,6 +339,32 @@ endif
 exe "hi! Normal"        .s:fg_foreground  .s:bg_normal      .s:fmt_none
 
 "}}}
+
+" Neovim Terminal Colors
+let g:terminal_color_0  = s:palette.gui.background[s:style] " background gray
+let g:terminal_color_8  = s:gui_comment " comment gray
+
+let g:terminal_color_1  = s:palette.gui.red[s:style] " red
+let g:terminal_color_9  = s:palette.gui.red[s:style] " dark red
+
+let g:terminal_color_2  = s:palette.gui.green[s:style] " green
+let g:terminal_color_10 = g:terminal_color_2
+
+let g:terminal_color_3  = s:palette.gui.yellow[s:style] " yellow
+let g:terminal_color_11 = s:palette.gui.orange[s:style] " dark yellow (actually orange)
+
+let g:terminal_color_4  = s:palette.gui.blue[s:style] " blue
+let g:terminal_color_12 = '#729fcf' " another shade of blue
+
+let g:terminal_color_5  = s:palette.gui.purple[s:style] " purple
+let g:terminal_color_13 = g:terminal_color_5
+
+let g:terminal_color_6  = s:palette.gui.aqua[s:style] " aqua
+let g:terminal_color_14 = s:palette.gui.darkcyan[s:style]  " dark aqua
+
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_15 = '#707880' " another shade of grade
+
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none

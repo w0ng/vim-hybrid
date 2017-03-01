@@ -22,9 +22,13 @@ A dark colour scheme for Vim that combines the:
 ## Installation
 
 1.  Copy colors/hybrid.vim to:
-
     ```
     ~/.vim/colors/hybrid.vim
+    ```
+    
+    for Windows
+    ```
+    ~/vimfiles/colors/hybrid.vim
     ```
 
     or alternatively, use a plugin manger such as

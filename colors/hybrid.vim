@@ -245,40 +245,40 @@ call s:build_prim('fg', 'darkcyan')
 call s:build_prim('fg', 'darkred')
 call s:build_prim('fg', 'darkpurple')
 
-exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
-exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_bldi = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
-exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c    ."'"
-exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i    ."'"
-exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
-exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
-exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
+let s:fmt_none = ' gui=NONE'.          ' cterm=NONE'.          ' term=NONE'
+let s:fmt_bold = ' gui=NONE'.s:b.      ' cterm=NONE'.s:b.      ' term=NONE'.s:b
+let s:fmt_bldi = ' gui=NONE'.s:b.      ' cterm=NONE'.s:b.      ' term=NONE'.s:b
+let s:fmt_undr = ' gui=NONE'.s:u.      ' cterm=NONE'.s:u.      ' term=NONE'.s:u
+let s:fmt_undb = ' gui=NONE'.s:u.s:b.  ' cterm=NONE'.s:u.s:b.  ' term=NONE'.s:u.s:b
+let s:fmt_undi = ' gui=NONE'.s:u.      ' cterm=NONE'.s:u.      ' term=NONE'.s:u
+let s:fmt_curl = ' gui=NONE'.s:c.      ' cterm=NONE'.s:c.      ' term=NONE'.s:c
+let s:fmt_ital = ' gui=NONE'.s:i.      ' cterm=NONE'.s:i.      ' term=NONE'.s:i
+let s:fmt_stnd = ' gui=NONE'.s:s.      ' cterm=NONE'.s:s.      ' term=NONE'.s:s
+let s:fmt_revr = ' gui=NONE'.s:r.      ' cterm=NONE'.s:r.      ' term=NONE'.s:r
+let s:fmt_revb = ' gui=NONE'.s:r.s:b.  ' cterm=NONE'.s:r.s:b.  ' term=NONE'.s:r.s:b
 
-exe "let s:sp_none       = ' guisp=". s:none                            ."'"
-exe "let s:sp_foreground = ' guisp=". s:palette.gui.foreground[s:style] ."'"
-exe "let s:sp_background = ' guisp=". s:palette.gui.background[s:style] ."'"
-exe "let s:sp_selection  = ' guisp=". s:palette.gui.selection[s:style]  ."'"
-exe "let s:sp_line       = ' guisp=". s:palette.gui.line[s:style]       ."'"
-exe "let s:sp_comment    = ' guisp=". s:palette.gui.comment[s:style]    ."'"
-exe "let s:sp_red        = ' guisp=". s:palette.gui.red[s:style]        ."'"
-exe "let s:sp_orange     = ' guisp=". s:palette.gui.orange[s:style]     ."'"
-exe "let s:sp_yellow     = ' guisp=". s:palette.gui.yellow[s:style]     ."'"
-exe "let s:sp_green      = ' guisp=". s:palette.gui.green[s:style]      ."'"
-exe "let s:sp_aqua       = ' guisp=". s:palette.gui.aqua[s:style]       ."'"
-exe "let s:sp_blue       = ' guisp=". s:palette.gui.blue[s:style]       ."'"
-exe "let s:sp_purple     = ' guisp=". s:palette.gui.purple[s:style]     ."'"
-exe "let s:sp_window     = ' guisp=". s:palette.gui.window[s:style]     ."'"
-exe "let s:sp_addbg      = ' guisp=". s:palette.gui.addbg[s:style]      ."'"
-exe "let s:sp_addfg      = ' guisp=". s:palette.gui.addfg[s:style]      ."'"
-exe "let s:sp_changebg   = ' guisp=". s:palette.gui.changebg[s:style]   ."'"
-exe "let s:sp_changefg   = ' guisp=". s:palette.gui.changefg[s:style]   ."'"
-exe "let s:sp_darkblue   = ' guisp=". s:palette.gui.darkblue[s:style]   ."'"
-exe "let s:sp_darkcyan   = ' guisp=". s:palette.gui.darkcyan[s:style]   ."'"
-exe "let s:sp_darkred    = ' guisp=". s:palette.gui.darkred[s:style]    ."'"
-exe "let s:sp_darkpurple = ' guisp=". s:palette.gui.darkpurple[s:style] ."'"
+let s:sp_none       = ' guisp='. s:none
+let s:sp_foreground = ' guisp='. s:palette.gui.foreground[s:style]
+let s:sp_background = ' guisp='. s:palette.gui.background[s:style]
+let s:sp_selection  = ' guisp='. s:palette.gui.selection[s:style]
+let s:sp_line       = ' guisp='. s:palette.gui.line[s:style]
+let s:sp_comment    = ' guisp='. s:palette.gui.comment[s:style]
+let s:sp_red        = ' guisp='. s:palette.gui.red[s:style]
+let s:sp_orange     = ' guisp='. s:palette.gui.orange[s:style]
+let s:sp_yellow     = ' guisp='. s:palette.gui.yellow[s:style]
+let s:sp_green      = ' guisp='. s:palette.gui.green[s:style]
+let s:sp_aqua       = ' guisp='. s:palette.gui.aqua[s:style]
+let s:sp_blue       = ' guisp='. s:palette.gui.blue[s:style]
+let s:sp_purple     = ' guisp='. s:palette.gui.purple[s:style]
+let s:sp_window     = ' guisp='. s:palette.gui.window[s:style]
+let s:sp_addbg      = ' guisp='. s:palette.gui.addbg[s:style]
+let s:sp_addfg      = ' guisp='. s:palette.gui.addfg[s:style]
+let s:sp_changebg   = ' guisp='. s:palette.gui.changebg[s:style]
+let s:sp_changefg   = ' guisp='. s:palette.gui.changefg[s:style]
+let s:sp_darkblue   = ' guisp='. s:palette.gui.darkblue[s:style]
+let s:sp_darkcyan   = ' guisp='. s:palette.gui.darkcyan[s:style]
+let s:sp_darkred    = ' guisp='. s:palette.gui.darkred[s:style]
+let s:sp_darkpurple = ' guisp='. s:palette.gui.darkpurple[s:style]
 
 "}}}
 " Vim Highlighting: (see :help highlight-groups)"{{{

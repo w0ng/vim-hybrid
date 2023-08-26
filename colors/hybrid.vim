@@ -84,7 +84,7 @@ let g:colors_name = "hybrid"
 
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
-if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
+if get(g:, 'hybrid_reduced_contrast', 0)
   let s:gui_background = "#232c31"
   let s:gui_selection  = "#425059"
   let s:gui_line       = "#2d3c46"
@@ -120,7 +120,7 @@ let s:palette.gui.darkcyan   = { 'dark' : "#005f5f"        , 'light' : "#005f00"
 let s:palette.gui.darkred    = { 'dark' : "#5f0000"        , 'light' : "#d7d7ff" }
 let s:palette.gui.darkpurple = { 'dark' : "#5f005f"        , 'light' : "#5f005f" }
 
-if exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
+if get(g:, 'hybrid_custom_term_colors', 0)
   let s:cterm_foreground = "15"  " White
   let s:cterm_selection  = "8"   " DarkGrey
   let s:cterm_line       = "0"   " Black
@@ -331,7 +331,7 @@ hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NO
 "   WildMenu"
 
 " Use defined custom background colour for terminal Vim.
-if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
+if !has('gui_running') && get(g:, 'hybrid_custom_term_colors', 0)
   let s:bg_normal = s:bg_none
 else
   let s:bg_normal = s:bg_background

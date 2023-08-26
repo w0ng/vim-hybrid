@@ -84,7 +84,7 @@ let g:colors_name = "hybrid"
 
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
-if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
+if get(g:, 'hybrid_reduced_contrast', 0)
   let s:gui_background = "#232c31"
   let s:gui_selection  = "#425059"
   let s:gui_line       = "#2d3c46"
@@ -120,7 +120,7 @@ let s:palette.gui.darkcyan   = { 'dark' : "#005f5f"        , 'light' : "#005f00"
 let s:palette.gui.darkred    = { 'dark' : "#5f0000"        , 'light' : "#d7d7ff" }
 let s:palette.gui.darkpurple = { 'dark' : "#5f005f"        , 'light' : "#5f005f" }
 
-if exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
+if get(g:, 'hybrid_custom_term_colors', 0)
   let s:cterm_foreground = "15"  " White
   let s:cterm_selection  = "8"   " DarkGrey
   let s:cterm_line       = "0"   " Black
@@ -245,40 +245,40 @@ call s:build_prim('fg', 'darkcyan')
 call s:build_prim('fg', 'darkred')
 call s:build_prim('fg', 'darkpurple')
 
-exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
-exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_bldi = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
-exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c    ."'"
-exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i    ."'"
-exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
-exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
-exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
+let s:fmt_none = ' gui=NONE'.          ' cterm=NONE'.          ' term=NONE'
+let s:fmt_bold = ' gui=NONE'.s:b.      ' cterm=NONE'.s:b.      ' term=NONE'.s:b
+let s:fmt_bldi = ' gui=NONE'.s:b.      ' cterm=NONE'.s:b.      ' term=NONE'.s:b
+let s:fmt_undr = ' gui=NONE'.s:u.      ' cterm=NONE'.s:u.      ' term=NONE'.s:u
+let s:fmt_undb = ' gui=NONE'.s:u.s:b.  ' cterm=NONE'.s:u.s:b.  ' term=NONE'.s:u.s:b
+let s:fmt_undi = ' gui=NONE'.s:u.      ' cterm=NONE'.s:u.      ' term=NONE'.s:u
+let s:fmt_curl = ' gui=NONE'.s:c.      ' cterm=NONE'.s:c.      ' term=NONE'.s:c
+let s:fmt_ital = ' gui=NONE'.s:i.      ' cterm=NONE'.s:i.      ' term=NONE'.s:i
+let s:fmt_stnd = ' gui=NONE'.s:s.      ' cterm=NONE'.s:s.      ' term=NONE'.s:s
+let s:fmt_revr = ' gui=NONE'.s:r.      ' cterm=NONE'.s:r.      ' term=NONE'.s:r
+let s:fmt_revb = ' gui=NONE'.s:r.s:b.  ' cterm=NONE'.s:r.s:b.  ' term=NONE'.s:r.s:b
 
-exe "let s:sp_none       = ' guisp=". s:none                            ."'"
-exe "let s:sp_foreground = ' guisp=". s:palette.gui.foreground[s:style] ."'"
-exe "let s:sp_background = ' guisp=". s:palette.gui.background[s:style] ."'"
-exe "let s:sp_selection  = ' guisp=". s:palette.gui.selection[s:style]  ."'"
-exe "let s:sp_line       = ' guisp=". s:palette.gui.line[s:style]       ."'"
-exe "let s:sp_comment    = ' guisp=". s:palette.gui.comment[s:style]    ."'"
-exe "let s:sp_red        = ' guisp=". s:palette.gui.red[s:style]        ."'"
-exe "let s:sp_orange     = ' guisp=". s:palette.gui.orange[s:style]     ."'"
-exe "let s:sp_yellow     = ' guisp=". s:palette.gui.yellow[s:style]     ."'"
-exe "let s:sp_green      = ' guisp=". s:palette.gui.green[s:style]      ."'"
-exe "let s:sp_aqua       = ' guisp=". s:palette.gui.aqua[s:style]       ."'"
-exe "let s:sp_blue       = ' guisp=". s:palette.gui.blue[s:style]       ."'"
-exe "let s:sp_purple     = ' guisp=". s:palette.gui.purple[s:style]     ."'"
-exe "let s:sp_window     = ' guisp=". s:palette.gui.window[s:style]     ."'"
-exe "let s:sp_addbg      = ' guisp=". s:palette.gui.addbg[s:style]      ."'"
-exe "let s:sp_addfg      = ' guisp=". s:palette.gui.addfg[s:style]      ."'"
-exe "let s:sp_changebg   = ' guisp=". s:palette.gui.changebg[s:style]   ."'"
-exe "let s:sp_changefg   = ' guisp=". s:palette.gui.changefg[s:style]   ."'"
-exe "let s:sp_darkblue   = ' guisp=". s:palette.gui.darkblue[s:style]   ."'"
-exe "let s:sp_darkcyan   = ' guisp=". s:palette.gui.darkcyan[s:style]   ."'"
-exe "let s:sp_darkred    = ' guisp=". s:palette.gui.darkred[s:style]    ."'"
-exe "let s:sp_darkpurple = ' guisp=". s:palette.gui.darkpurple[s:style] ."'"
+let s:sp_none       = ' guisp='. s:none
+let s:sp_foreground = ' guisp='. s:palette.gui.foreground[s:style]
+let s:sp_background = ' guisp='. s:palette.gui.background[s:style]
+let s:sp_selection  = ' guisp='. s:palette.gui.selection[s:style]
+let s:sp_line       = ' guisp='. s:palette.gui.line[s:style]
+let s:sp_comment    = ' guisp='. s:palette.gui.comment[s:style]
+let s:sp_red        = ' guisp='. s:palette.gui.red[s:style]
+let s:sp_orange     = ' guisp='. s:palette.gui.orange[s:style]
+let s:sp_yellow     = ' guisp='. s:palette.gui.yellow[s:style]
+let s:sp_green      = ' guisp='. s:palette.gui.green[s:style]
+let s:sp_aqua       = ' guisp='. s:palette.gui.aqua[s:style]
+let s:sp_blue       = ' guisp='. s:palette.gui.blue[s:style]
+let s:sp_purple     = ' guisp='. s:palette.gui.purple[s:style]
+let s:sp_window     = ' guisp='. s:palette.gui.window[s:style]
+let s:sp_addbg      = ' guisp='. s:palette.gui.addbg[s:style]
+let s:sp_addfg      = ' guisp='. s:palette.gui.addfg[s:style]
+let s:sp_changebg   = ' guisp='. s:palette.gui.changebg[s:style]
+let s:sp_changefg   = ' guisp='. s:palette.gui.changefg[s:style]
+let s:sp_darkblue   = ' guisp='. s:palette.gui.darkblue[s:style]
+let s:sp_darkcyan   = ' guisp='. s:palette.gui.darkcyan[s:style]
+let s:sp_darkred    = ' guisp='. s:palette.gui.darkred[s:style]
+let s:sp_darkpurple = ' guisp='. s:palette.gui.darkpurple[s:style]
 
 "}}}
 " Vim Highlighting: (see :help highlight-groups)"{{{
@@ -331,7 +331,7 @@ hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NO
 "   WildMenu"
 
 " Use defined custom background colour for terminal Vim.
-if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
+if !has('gui_running') && get(g:, 'hybrid_custom_term_colors', 0)
   let s:bg_normal = s:bg_none
 else
   let s:bg_normal = s:bg_background
@@ -416,11 +416,6 @@ hi! link diffAdded Special
 
 "}}}
 "
-" This is needed for some reason: {{{
-
-let &background = s:style
-
-" }}}
 " Legal:"{{{
 " ----------------------------------------------------------------------------
 " Copyright (c) 2011 Ethan Schoonover

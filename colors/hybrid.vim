@@ -416,11 +416,6 @@ hi! link diffAdded Special
 
 "}}}
 "
-" This is needed for some reason: {{{
-
-let &background = s:style
-
-" }}}
 " Legal:"{{{
 " ----------------------------------------------------------------------------
 " Copyright (c) 2011 Ethan Schoonover
